@@ -1,66 +1,67 @@
-module BrailleDictionary
-  # attr_reader :character
-  #             # :a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,
-  #             # :n,:o,:p,:q,:r,:s,:t,:u,:v,:w,:x,:y,:z
-  # def initialize(character)
-  #   @character = character
-  # end
-  def character_to_braille
-    if @letter_to_be_translated == "a"
+class BrailleDictionary
+  attr_reader :character
+              # :a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,
+              # :n,:o,:p,:q,:r,:s,:t,:u,:v,:w,:x,:y,:z
+  def initialize(character)
+    @character = character
+  end
+
+  def converter
+    if character == "a"
       [["0."],[".."],[".."]]
-    elsif @letter_to_be_translated == "b"
+    elsif character == "b"
       [["0."],["0."],[".."]]
-    elsif @letter_to_be_translated == "c"
+    elsif character == "c"
       [["00"],[".."],[".."]]
-    elsif @letter_to_be_translated == "d"
+    elsif character == "d"
       [["00"],[".0"],[".."]]
-    elsif @letter_to_be_translated == "e"
+    elsif character == "e"
       [["0."],[".0"],[".."]]
-    elsif @letter_to_be_translated == "f"
+    elsif character == "f"
       [["00"],["0."],[".."]]
-    elsif @letter_to_be_translated == "g"
+    elsif character == "g"
       [["00"],["00"],[".."]]
-    elsif @letter_to_be_translated == "h"
+    elsif character == "h"
       [["0."],["00"],[".."]]
-    elsif @letter_to_be_translated == "i"
+    elsif character == "i"
       [[".0"],["0."],[".."]]
-    elsif @letter_to_be_translated == "j"
+    elsif character == "j"
       [[".0"],["00"],[".."]]
-    elsif @letter_to_be_translated == "k"
+    elsif character == "k"
       [["0."],[".."],["0."]]
-    elsif @letter_to_be_translated == "l"
+    elsif character == "l"
       [["0."],["0."],["0."]]
-    elsif @letter_to_be_translated == "m"
+    elsif character == "m"
       [["00"],[".."],["0."]]
-    elsif @letter_to_be_translated == "n"
+    elsif character == "n"
       [["00"],[".0"],["0."]]
-    elsif @letter_to_be_translated == "o"
+    elsif character == "o"
       [["0."],[".0"],["0."]]
-    elsif @letter_to_be_translated == "p"
+    elsif character == "p"
       [["00"],["0."],["0."]]
-    elsif @letter_to_be_translated == "q"
+    elsif character == "q"
       [["00"],["00"],["0."]]
-    elsif @letter_to_be_translated == "r"
+    elsif character == "r"
       [["0."],["00"],["0."]]
-    elsif @letter_to_be_translated == "s"
+    elsif character == "s"
       [[".0"],["0."],["0."]]
-    elsif @letter_to_be_translated == "t"
+    elsif character == "t"
       [[".0"],["00"],["0."]]
-    elsif @letter_to_be_translated == "u"
+    elsif character == "u"
       [["0."],[".."],["00"]]
-    elsif @letter_to_be_translated == "v"
+    elsif character == "v"
       [["0."],["0."],["00"]]
-    elsif @letter_to_be_translated == "w"
+    elsif character == "w"
       [[".0"],["00"],[".0"]]
-    elsif @letter_to_be_translated == "x"
+    elsif character == "x"
       [["00"],[".."],["00"]]
-    elsif @letter_to_be_translated == "y"
+    elsif character == "y"
       [["00"],[".0"],["00"]]
-    elsif @letter_to_be_translated == "z"
+    elsif character == "z"
       [["0."],[".0"],["00"]]
-    elsif @letter_to_be_translated == " "
+    elsif character == " "
       [[".."],[".."],[".."]]
-    elsif @letter_to_be_translated == "."
+    elsif character == "."
       [[".."],["00"],[".0"]]
     else
       "Undefined Character"
