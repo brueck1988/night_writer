@@ -6,7 +6,9 @@ Take textfile with text as input
   Create output text file comprised of braile from input
   Translate the input into braile.
     each character will be an element in an array.
-      iterate through a data set that equates each letter to a array.
+    Create this conversion table or braille dictionary
+    iterate through a data set that equates each letter to a array.
+    output the results. (each row shall be no more than 40 braille characters or 80 characters wide)
 
       Covert braile back into letters.
         braile will be in 2x6 matrix.
