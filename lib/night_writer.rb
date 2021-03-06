@@ -1,15 +1,27 @@
 require "./lib/braille_dictionary"
 
-message_file = File.open("message.txt")
-#message = message_file.read
-message_readlines = message_file.readlines.map(&:chomp)
-message_file.close
-print "message.txt braille.txt\nCreated 'braille.txt' containing 256 characters"
-#p message
-puts '\n\n'
-p message_readlines
-p BrailleDictionary.h
 
-braille_file = File.new("braille.txt", "w")
-braille_file.puts(message_readlines)
-braille_file.close
+class NightWriter
+  attr_reader :braille_message,
+              :message
+
+  def initialize(message)
+    @message = message
+    @braille_message = []
+  end
+
+  def convert_to_braille
+    #shortened_strings = @message.make_strings_of_twenty_characters_or_less
+    a = [["0."],[".."],[".."]]
+    b = [["0."],["0."],[".."]]
+    c = [["00"],[".."],[".."]]
+    d = [["00"],[".0"],[".."]]
+    b + c
+    #@message.each
+  end
+
+  def make_strings_of_twenty_characters_or_less
+  end
+
+
+end
