@@ -1,10 +1,10 @@
 require './lib/night_writer'
 
 class FileIo
-
   def start
     read_file
     count_characters_in_input
+    convert_file_contents_to_braille
     write_file
     print_message
   end
@@ -16,12 +16,14 @@ class FileIo
   message_file.close
   end
 
-  def write_file
-  @text = NightWriter.new(@text_to_translate)
-  braille = @text.convert_to_braille
+  def convert_file_contents_to_braille
+    text = NightWriter.new(@text_to_translate, @character_count)
+    @braille = text.convert_to_braille
+  end
 
+  def write_file
   braille_file = File.new("braille.txt", "w")
-  braille_file.puts(braille)
+  braille_file.puts(@braille)
   braille_file.close
   end
 
@@ -30,7 +32,6 @@ class FileIo
   end
 
   def count_characters_in_input
-    require "pry";binding.pry
     @character_count = @text_to_translate.tr("\n","").length
   end
 end
