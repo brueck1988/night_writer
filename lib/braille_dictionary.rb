@@ -63,6 +63,10 @@ class BrailleDictionary
       [[".."],[".."],[".."]]
     elsif character == "."
       [[".."],["00"],[".0"]]
+    elsif character == ","
+      [[".."],["0."],[".."]]
+    elsif character == "'"
+      [[".."],[".."],["0."]]
     else
       "Undefined Character"
     end
