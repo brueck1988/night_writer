@@ -22,17 +22,15 @@ class NightWriter
   def convert_to_braille
     make_strings_of_forty_characters_or_less
     @elements_of_twenty.each do |element|
-      @braille_message0 = []
-      @braille_message1 = []
-      @braille_message2 = []
+      @braille_line = [[], [], []]
       element.each_char do |character|
         letter = BrailleDictionary.new(character)
-        @braille_message0 << letter.converter[0]
-        @braille_message1 << letter.converter[1]
-        @braille_message2 << letter.converter[2]
+        @braille_line[0] << letter.converter[0]
+        @braille_line[1] << letter.converter[1]
+        @braille_line[2] << letter.converter[2]
       end
-      @braille_message << @braille_message0.flatten.join + "\n" +
-        @braille_message1.flatten.join + "\n" + @braille_message2.flatten.join
+      @braille_message << @braille_line[0].flatten.join + "\n" +
+        @braille_line[1].flatten.join + "\n" + @braille_line[2].flatten.join
     end
     @braille_message
   end
