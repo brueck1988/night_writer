@@ -1,5 +1,4 @@
 require "./lib/braille_dictionary"
-#require "./lib/file_io"
 
 class NightWriter
   attr_reader :braille_message,

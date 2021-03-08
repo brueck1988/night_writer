@@ -20,10 +20,10 @@ class AlphanumericDictionaryTest < Minitest::Test
     period = AlphanumericDictionary.new([[".."],["00"],[".0"]])
     undefined_character = AlphanumericDictionary.new("&")
 
-    # assert_equal "a", a.converter
-    # assert_equal "b", b.converter
-    # assert_equal " ", space.converter
-    # assert_equal ".", period.converter
+    assert_equal "a", a.converter
+    assert_equal "b", b.converter
+    assert_equal " ", space.converter
+    assert_equal ".", period.converter
     assert_equal "Undefined Character", undefined_character.converter
   end
 end

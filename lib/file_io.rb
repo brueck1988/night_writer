@@ -47,7 +47,6 @@ class FileIo
   end
 
   def convert_braille_file_contents_to_text
-    require "pry";binding.pry
     braille = NightReader.new(@braille_to_translate)
     @text = braille.convert_to_text
   end
@@ -68,6 +67,7 @@ class FileIo
 
   def file_name_prompt
     print "\nWhat would you like to name the output file? (No file extension required.)\n>"
+
     user_prompt = gets.chomp.downcase
     @file_name << "#{user_prompt}.txt"
   end

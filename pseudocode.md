@@ -33,4 +33,13 @@ Take textfile with text as input
       Covert braille back into letters.
         braille will be in 2x6 matrix.
             Since two dimensional arrays are not possible in Ruby, I think this will need to be (3)2 character arrays for each letter
-  output the braille to the newly created text file
+            output the braille to the newly created text file
+
+            #remove two characters 3 times, send three arrays to coverter to get letter,
+            #send letter to array.
+            #start new line for each element of twenty
+
+            #select arrays in groups of 3
+            #select letters in groups of two for each line
+            #recombine three arrays of two characters to make one letter
+            #convert braille to letter with dictionary
