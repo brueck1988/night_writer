@@ -6,7 +6,7 @@ class NightWriter
               :text_to_convert
 
   def initialize(text_to_convert)
-    @text_to_convert = text_to_convert.downcase
+    @text_to_convert = text_to_convert
     @braille_message = []
   end
 

@@ -11,7 +11,7 @@ class NightWriterTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    night_writer = NightWriter.new("ABCD")
+    night_writer = NightWriter.new("abcd")
 
     assert_equal "abcd", night_writer.text_to_convert
     assert_equal [], night_writer.braille_message
