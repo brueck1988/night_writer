@@ -1,10 +1,6 @@
 require "./lib/braille_dictionary"
 require './lib/file_io'
 
-
-
-
-
 class NightWriter
   include FileIo
 
