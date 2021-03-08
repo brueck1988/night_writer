@@ -1,12 +1,27 @@
 require "./lib/braille_dictionary"
+require './lib/file_io'
+
+
+
+
 
 class NightWriter
+  include FileIo
+
   attr_reader :braille_message,
               :text_to_convert
 
-  def initialize(text_to_convert)
-    @text_to_convert = text_to_convert
+  def initialize
+    @text_to_convert = read_text_file(ARGV[0])
     @braille_message = []
+  end
+
+  def start
+    count_characters_in_input
+    make_strings_of_forty_characters_or_less
+    convert_to_braille
+    write_file(ARGV[1], @braille_message)
+    print_message
   end
 
   def make_strings_of_forty_characters_or_less
@@ -19,7 +34,6 @@ class NightWriter
   end
 
   def convert_to_braille
-    make_strings_of_forty_characters_or_less
     @elements_of_twenty.each do |element|
       braille_line = [[], [], []]
       element.each_char do |character|
@@ -33,4 +47,15 @@ class NightWriter
     end
     @braille_message
   end
+
+  def count_characters_in_input
+    @character_count = @text_to_convert.tr("\n","").length
+  end
+
+  def print_message
+    print "Created '#{ARGV[1]}' containing #{@character_count} characters."
+  end
 end
+
+new_translation = NightWriter.new
+new_translation.start
