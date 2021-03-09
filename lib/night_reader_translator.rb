@@ -10,13 +10,13 @@ class NightReaderTranslator
   end
 
   def translate_to_text
-    split_text = @braille_to_translate.split("\n")
-    until split_text == []
+    split_braille = @braille_to_translate.split("\n")
+    until split_braille == []
       @braille_line = [[],[],[]]
       @text_message_line = []
-      @braille_line[0] << split_text.slice!(0)
-      @braille_line[1] << split_text.slice!(0)
-      @braille_line[2] << split_text.slice!(0)
+      @braille_line[0] << split_braille.slice!(0)
+      @braille_line[1] << split_braille.slice!(0)
+      @braille_line[2] << split_braille.slice!(0)
       until @braille_line == [[""], [""], [""]]
         braille_character = [[],[],[]]
         braille_character[0] << @braille_line[0][0].slice!(0..1)
