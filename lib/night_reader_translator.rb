@@ -1,16 +1,16 @@
 require "./lib/alphanumeric_dictionary"
 
 class NightReaderTranslator
-  attr_reader :text_to_translate,
+  attr_reader :braille_to_translate,
               :text_message
 
-  def initialize(text_to_translate)
-    @text_to_translate = text_to_translate
+  def initialize(braille_to_translate)
+    @braille_to_translate = braille_to_translate
     @text_message = []
   end
 
   def translate_to_text
-    split_text = @text_to_translate.split("\n")
+    split_text = @braille_to_translate.split("\n")
     until split_text == []
       @braille_line = [[],[],[]]
       @text_message_line = []

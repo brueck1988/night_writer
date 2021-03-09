@@ -11,7 +11,7 @@ class NightWriterTranslator
 
   def convert_to_braille
     make_strings_of_forty_characters_or_less
-    @elements_of_twenty.each do |element|
+    @elements_of_forty.each do |element|
       braille_line = [[], [], []]
       element.each_char do |character|
         letter = BrailleDictionary.new(character)
@@ -26,7 +26,7 @@ class NightWriterTranslator
   end
 
   def make_strings_of_forty_characters_or_less
-    single_line = @text_to_translate.tr("\n","")
+    single_line = @text_to_translate.tr("\n"," ")
     @elements_of_forty = []
     until single_line.empty?
       @elements_of_forty << single_line.slice!(0..39)

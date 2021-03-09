@@ -12,7 +12,7 @@ class NightReaderTranslatorTest < Minitest::Test
 
   def test_it_has_attributes
     night_reader_translator = NightReaderTranslator.new([["0."],[".."],[".."]])
-    assert_equal [["0."],[".."],[".."]], night_reader_translator.text_to_translate
+    assert_equal [["0."],[".."],[".."]], night_reader_translator.braille_to_translate
     assert_equal [], night_reader_translator.text_message
   end
 
