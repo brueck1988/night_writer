@@ -12,7 +12,8 @@ class NightReaderTranslatorTest < Minitest::Test
 
   def test_it_has_attributes
     night_reader_translator = NightReaderTranslator.new([["0."],[".."],[".."]])
-    assert_equal [["0."],[".."],[".."]], night_reader_translator.braille_to_translate
+    expected = [["0."],[".."],[".."]]
+    assert_equal expected, night_reader_translator.braille_to_translate
     assert_equal [], night_reader_translator.text_message
   end
 
@@ -22,13 +23,12 @@ class NightReaderTranslatorTest < Minitest::Test
 
     assert_equal ["abcd"], night_reader_translator.translate_to_text
   end
+
+  def test_split_braille_at_line_breaks
+    input = "0.0.0000\n..0....0\n........"
+    night_writer = NightReaderTranslator.new(input)
+    expected = ["0.0.0000", "..0....0", "........"]
+
+    assert_equal expected, night_writer.split_braille_at_line_breaks
+  end
 end
-
-
-  # def test_make_strings_of_forty_characters_or_less
-  #   input =   "abcdefghijklmnopqrstuvwxyz\nabcdefghijklmnopqrstuvwxyz\nabcdefghijklmnopqrstuvwxyz"
-  #   night_writer = NightWriterTranslator.new(input)
-  #   expected = ["abcdefghijklmnopqrstuvwxyzabcdefghijklmn", "opqrstuvwxyzabcdefghijklmnopqrstuvwxyz"]
-  #
-  #   assert_equal expected, night_writer.make_strings_of_forty_characters_or_less
-  # end
