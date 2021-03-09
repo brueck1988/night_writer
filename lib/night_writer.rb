@@ -1,5 +1,5 @@
-require "./lib/braille_dictionary"
 require './lib/file_io'
+require './lib/night_writer_translator'
 
 class NightWriter
   include FileIo
@@ -12,8 +12,7 @@ class NightWriter
 
   def start
     count_characters_in_input
-    make_strings_of_forty_characters_or_less
-    new_translation = NightWriterTranslate.new(@text_to_translate)
+    new_translation = NightWriterTranslator.new(@text_to_translate)
     braille_message = new_translation.convert_to_braille
     write_file(ARGV[1], braille_message)
     print_message
