@@ -20,7 +20,7 @@ class NightWriterTranslatorTest < Minitest::Test
   def test_make_strings_of_forty_characters_or_less
     input =   "abcdefghijklmnopqrstuvwxyz\nabcdefghijklmnopqrstuvwxyz\nabcdefghijklmnopqrstuvwxyz"
     night_writer_translator = NightWriterTranslator.new(input)
-    expected = ["abcdefghijklmnopqrstuvwxyzabcdefghijklmn", "opqrstuvwxyzabcdefghijklmnopqrstuvwxyz"]
+    expected = ["abcdefghijklmnopqrstuvwxyz abcdefghijklm", "nopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"]
 
     assert_equal expected, night_writer_translator.make_strings_of_forty_characters_or_less
   end
