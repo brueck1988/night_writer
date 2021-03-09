@@ -66,26 +66,6 @@ class BrailleDictionary
       [[".."],["0."],[".."]]
     elsif character == "'"
       [[".."],[".."],["0."]]
-    # elsif character == "0"
-    #   [[".0"],["00"],[".."]]
-    # elsif character == "1"
-    #   [["0."],[".."],[".."]]
-    # elsif character == "2"
-    #   [["0."],["0."],[".."]]
-    # elsif character == "3"
-    #   [["00"],[".."],[".."]]
-    # elsif character == "4"
-    #   [["00"],[".0"],[".."]]
-    # elsif character == "5"
-    #   [["0."],[".0"],[".."]]
-    # elsif character == "6"
-    #   [["00"],["0."],[".."]]
-    # elsif character == "7"
-    #   [["00"],["00"],[".."]]
-    # elsif character == "8"
-    #   [["0."],["00"],[".."]]
-    # elsif character == "9"
-    #   [[".0"],["0."],[".."]]
     else
       "Undefined Character"
     end

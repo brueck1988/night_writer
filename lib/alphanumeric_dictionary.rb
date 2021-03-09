@@ -66,26 +66,6 @@ class AlphanumericDictionary
       ","
     elsif character == [[".."],[".."],["0."]]
       "'"
-    # elsif character == [[".0"],["00"],[".."]]
-    #   "0"
-    # elsif character == [["0."],[".."],[".."]]
-    #   "1"
-    # elsif character == [["0."],["0."],[".."]]
-    #   "2"
-    # elsif character == [["00"],[".."],[".."]]
-    #   "3"
-    # elsif character == [["00"],[".0"],[".."]]
-    #   "4"
-    # elsif character == [["0."],[".0"],[".."]]
-    #   "5"
-    # elsif character == [["00"],["0."],[".."]]
-    #   "6"
-    # elsif character == [["00"],["00"],[".."]]
-    #   "7"
-    # elsif character == [["0."],["00"],[".."]]
-    #   "8"
-    # elsif character == [[".0"],["0."],[".."]]
-    #   "9"
     else
       "Undefined Character"
     end
