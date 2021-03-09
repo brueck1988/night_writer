@@ -27,10 +27,10 @@ class NightWriterTranslator
 
   def make_strings_of_forty_characters_or_less
     single_line = @text_to_translate.tr("\n","")
-    @elements_of_twenty = []
+    @elements_of_forty = []
     until single_line.empty?
-      @elements_of_twenty << single_line.slice!(0..39)
+      @elements_of_forty << single_line.slice!(0..39)
     end
-    @elements_of_twenty
+    @elements_of_forty
   end
 end
