@@ -4,8 +4,7 @@ require './lib/file_io'
 class NightWriter
   include FileIo
 
-  attr_reader :braille_message,
-              :text_to_convert
+  attr_reader :text_to_translate
 
   def initialize
     @text_to_translate = read_text_file(ARGV[0])
