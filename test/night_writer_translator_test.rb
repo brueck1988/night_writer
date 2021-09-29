@@ -20,7 +20,7 @@ class NightWriterTranslatorTest < Minitest::Test
     night_writer_translator = NightWriterTranslator.new(input)
     expected = ["abcdefghijklmnopqrstuvwxyz abcdefghijklm", "nopqrstuvwxyz abcdefghijklmnopqrstuvwxyz"]
 
-    assert_equal expected, night_writer_translator.make_strings_of_forty_characters_or_less
+    assert_equal expected, night_writer_translator.make_text_lines_of_forty_characters_or_less
   end
 
   def test_convert_to_braille
@@ -30,20 +30,20 @@ class NightWriterTranslatorTest < Minitest::Test
     assert_equal expected, night_writer_translator.convert_to_braille
   end
 
-  def convert_one_text_line_into_3_lines_of_braille_arrays
+  def test_convert_one_text_line_into_3_lines_of_braille_arrays
     night_writer_translator = NightWriterTranslator.new("AbCd")
     expected = [[["0."], ["0."], ["00"], ["00"]], [[".."], ["0."], [".."], 
                 [".0"]], [[".."], [".."], [".."], [".."]]]
-
-    assert_equal expected, night_writer_translator.convert_one_text_line_into_three_lines_of_braille("abcd")
+  
+    assert_equal expected, night_writer_translator.convert_one_text_line_into_three_lines_of_braille_arrays("abcd")
   end
 
-  def convert_3_lines_of_braille_arrays_into_3_lines_of_braille_strings
+  def test_convert_three_lines_of_braille_arrays_into_three_lines_of_braille_strings
     input = [[["0."], ["0."], ["00"], ["00"]], [[".."], ["0."], [".."], 
               [".0"]], [[".."], [".."], [".."], [".."]]]
-    night_writer_translator = NightWriterTranslator.new(input)
+    night_writer_translator = NightWriterTranslator.new("AbCd")
     expected = "0.0.0000\n..0....0\n........"
-
-    assert_equal expected, night_writer_translator.convert_one_text_line_into_three_lines_of_braille("abcd")
+    actual = night_writer_translator.convert_three_lines_of_braille_arrays_into_three_lines_of_braille_strings(input)
+    assert_equal expected, actual
   end
 end
