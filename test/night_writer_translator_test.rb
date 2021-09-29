@@ -11,7 +11,7 @@ class NightWriterTranslatorTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    night_writer_translator = NightWriterTranslator.new("abcd")
+    night_writer_translator = NightWriterTranslator.new("AbCd")
 
     assert_equal "abcd", night_writer_translator.text_to_translate
     assert_equal [], night_writer_translator.braille_message

@@ -2,7 +2,7 @@ class BrailleDictionary
   attr_reader :character
 
   def initialize(character)
-    @character = character.downcase
+    @character = character
   end
 
   def converter

@@ -5,7 +5,7 @@ class NightWriterTranslator
               :braille_message
 
   def initialize(text_to_translate)
-    @text_to_translate = text_to_translate
+    @text_to_translate = text_to_translate.downcase
     @braille_message = []
   end
 

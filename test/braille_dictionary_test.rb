@@ -9,7 +9,7 @@ class BrailleDictionaryTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    braille_dictionary = BrailleDictionary.new("A")
+    braille_dictionary = BrailleDictionary.new("a")
 
     assert_equal "a", braille_dictionary.character
   end
