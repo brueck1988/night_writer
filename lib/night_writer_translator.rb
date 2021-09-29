@@ -8,12 +8,11 @@ class NightWriterTranslator
   end
 
   def convert_to_braille
-    braille_message = []
     elements_of_forty = make_strings_of_forty_characters_or_less
+    braille_message = []
     elements_of_forty.map do |element|
-      convert_one_text_line_into_three_lines_of_braille(element)
-      braille_message << @braille_line[0].flatten.join + "\n" +
-      @braille_line[1].flatten.join + "\n" + @braille_line[2].flatten.join
+      lines_of_braille_arrays = convert_one_text_line_into_3_lines_of_braille_arrays(element)
+      braille_message << convert_3_lines_of_braille_arrays_into_3_lines_of_braille_strings(lines_of_braille_arrays)
     end
     braille_message
   end
@@ -27,13 +26,20 @@ class NightWriterTranslator
     elements_of_forty
   end
   
-  def convert_one_text_line_into_three_lines_of_braille(element)
-    @braille_line = [[], [], []]
+  def convert_one_text_line_into_3_lines_of_braille_arrays(element)
+    braille_line = [[], [], []]
     element.each_char do |character|
       letter = BrailleDictionary.new(character)
-      @braille_line[0] << letter.converter[0]
-      @braille_line[1] << letter.converter[1]
-      @braille_line[2] << letter.converter[2]
+      braille_line[0] << letter.converter[0]
+      braille_line[1] << letter.converter[1]
+      braille_line[2] << letter.converter[2]
     end
+    braille_line
+  end
+  
+  def convert_3_lines_of_braille_arrays_into_3_lines_of_braille_strings(lines_of_braille_arrays)
+    lines_of_braille_arrays[0].flatten.join + "\n" +
+    lines_of_braille_arrays[1].flatten.join + "\n" + 
+    lines_of_braille_arrays[2].flatten.join
   end
 end
