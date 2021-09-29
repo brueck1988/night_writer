@@ -11,19 +11,19 @@ class NightWriter
   end
 
   def start
-    count_characters_in_input
+    character_count = count_characters_in_input
     new_translation = NightWriterTranslator.new(@text_to_translate)
     braille_message = new_translation.convert_to_braille
     write_file(ARGV[1], braille_message)
-    print_message
+    print_message(character_count)
   end
 
   def count_characters_in_input
-    @character_count = @text_to_translate.tr("\n","").length
+    @text_to_translate.tr("\n","").length
   end
 
-  def print_message
-    print "Created '#{ARGV[1]}' containing #{@character_count} characters."
+  def print_message(character_count)
+    print "Created '#{ARGV[1]}' containing #{character_count} characters."
   end
 end
 
