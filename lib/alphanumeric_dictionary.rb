@@ -6,66 +6,40 @@ class AlphanumericDictionary
   end
 
   def converter
-    if character == [["0."],[".."],[".."]]
-      "a"
-    elsif character == [["0."],["0."],[".."]]
-      "b"
-    elsif character == [["00"],[".."],[".."]]
-      "c"
-    elsif character == [["00"],[".0"],[".."]]
-      "d"
-    elsif character == [["0."],[".0"],[".."]]
-      "e"
-    elsif character == [["00"],["0."],[".."]]
-      "f"
-    elsif character == [["00"],["00"],[".."]]
-      "g"
-    elsif character == [["0."],["00"],[".."]]
-      "h"
-    elsif character == [[".0"],["0."],[".."]]
-      "i"
-    elsif character == [[".0"],["00"],[".."]]
-      "j"
-    elsif character == [["0."],[".."],["0."]]
-      "k"
-    elsif character == [["0."],["0."],["0."]]
-      "l"
-    elsif character == [["00"],[".."],["0."]]
-      "m"
-    elsif character == [["00"],[".0"],["0."]]
-      "n"
-    elsif character == [["0."],[".0"],["0."]]
-      "o"
-    elsif character == [["00"],["0."],["0."]]
-      "p"
-    elsif character == [["00"],["00"],["0."]]
-      "q"
-    elsif character == [["0."],["00"],["0."]]
-      "r"
-    elsif character == [[".0"],["0."],["0."]]
-      "s"
-    elsif character == [[".0"],["00"],["0."]]
-      "t"
-    elsif character == [["0."],[".."],["00"]]
-      "u"
-    elsif character == [["0."],["0."],["00"]]
-      "v"
-    elsif character == [[".0"],["00"],[".0"]]
-      "w"
-    elsif character == [["00"],[".."],["00"]]
-      "x"
-    elsif character == [["00"],[".0"],["00"]]
-      "y"
-    elsif character == [["0."],[".0"],["00"]]
-      "z"
-    elsif character == [[".."],[".."],[".."]]
-      " "
-    elsif character == [[".."],["00"],[".0"]]
-      "."
-    elsif character == [[".."],["0."],[".."]]
-      ","
-    elsif character == [[".."],[".."],["0."]]
-      "'"
+    dictionary =  {}
+    dictionary[[["0."],[".."],[".."]]] = "a"
+    dictionary[[["0."],["0."],[".."]]] = "b"
+    dictionary[[["00"],[".."],[".."]]] = "c"
+    dictionary[[["00"],[".0"],[".."]]] = "d"
+    dictionary[[["0."],[".0"],[".."]]] = "e"
+    dictionary[[["00"],["0."],[".."]]] = "f"
+    dictionary[[["00"],["00"],[".."]]] = "g"
+    dictionary[[["0."],["00"],[".."]]] = "h"
+    dictionary[[[".0"],["0."],[".."]]] = "i"
+    dictionary[[[".0"],["00"],[".."]]] = "j"
+    dictionary[[["0."],[".."],["0."]]] = "k"
+    dictionary[[["0."],["0."],["0."]]] = "l"
+    dictionary[[["00"],[".."],["0."]]] = "m"
+    dictionary[[["00"],[".0"],["0."]]] = "n"
+    dictionary[[["0."],[".0"],["0."]]] = "o"
+    dictionary[[["00"],["0."],["0."]]] = "p"
+    dictionary[[["00"],["00"],["0."]]] = "q"
+    dictionary[[["0."],["00"],["0."]]] = "r"
+    dictionary[[[".0"],["0."],["0."]]] = "s"
+    dictionary[[[".0"],["00"],["0."]]] = "t"
+    dictionary[[["0."],[".."],["00"]]] = "u"
+    dictionary[[["0."],["0."],["00"]]] = "v"
+    dictionary[[[".0"],["00"],[".0"]]] = "w"
+    dictionary[[["00"],[".."],["00"]]] = "x"
+    dictionary[[["00"],[".0"],["00"]]] = "y"
+    dictionary[[["0."],[".0"],["00"]]] = "z"
+    dictionary[[[".."],[".."],[".."]]] = " "
+    dictionary[[[".."],["00"],[".0"]]] = "."
+    dictionary[[[".."],["0."],[".."]]] = ","
+    dictionary[[[".."],[".."],["0."]]] = "'"
+
+    if dictionary[@character]
+      dictionary[@character]
     else
       "Undefined Character"
     end
