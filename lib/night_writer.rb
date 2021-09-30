@@ -4,18 +4,21 @@ require './lib/night_writer_translator'
 class NightWriter
   include FileIo
 
-  attr_reader :text_to_translate
-
   def initialize
     @text_to_translate = read_text_file(ARGV[0])
   end
 
   def start
+    downcased_text_to_translate = downcase_text
     character_count = count_characters_in_input
-    new_translation = NightWriterTranslator.new(@text_to_translate)
+    new_translation = NightWriterTranslator.new(downcased_text_to_translate)
     braille_message = new_translation.convert_to_braille
     write_file(ARGV[1], braille_message)
     print_message(character_count)
+  end
+  
+  def downcase_text
+    @text_to_translate.downcase
   end
 
   def count_characters_in_input

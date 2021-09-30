@@ -1,10 +1,10 @@
 require "./lib/braille_dictionary"
 
 class NightWriterTranslator
-  attr_reader :text_to_translate
+  # attr_reader :text_to_translate
 
   def initialize(text_to_translate)
-    @text_to_translate = text_to_translate.downcase
+    @text_to_translate = text_to_translate
   end
 
   def convert_to_braille
