@@ -10,19 +10,19 @@ class NightReader
   end
 
   def start
-    count_characters_in_input
+    character_count = count_characters_in_input
     new_translation = NightReaderTranslator.new(@braille_to_translate)
     text_message = new_translation.translate_to_text
     write_file(ARGV[1], text_message)
-    print_message
+    print_message(character_count)
   end
 
   def count_characters_in_input
-    @character_count = @braille_to_translate.tr("\n","").length
+    @braille_to_translate.tr("\n","").length
   end
 
-  def print_message
-    print "Created '#{ARGV[1]}' containing #{@character_count} characters."
+  def print_message(character_count)
+    print "Created '#{ARGV[1]}' containing #{character_count} characters."
   end
 end
 
