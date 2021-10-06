@@ -7,7 +7,6 @@ class NightReader
 
   def initialize
     @braille_to_translate = read_text_file(ARGV[0])
-    @text_message = []
   end
 
   def start
