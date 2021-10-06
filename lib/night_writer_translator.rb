@@ -7,7 +7,7 @@ class NightWriterTranslator
     @text_to_translate = text_to_translate
   end
 
-  def convert_to_braille
+  def translate_to_braille
     text_lines_of_forty_characters_or_less = make_text_lines_of_forty_characters_or_less
     braille_message = []
     text_lines_of_forty_characters_or_less.map do |element|
