@@ -9,19 +9,15 @@ class NightWriter
   end
 
   def start
-    downcased_text_to_translate = downcase_text
-    character_count = count_characters_in_input
+    character_count = count_characters_in_text_to_translate
+    downcased_text_to_translate = @text_to_translate.downcase
     new_translation = NightWriterTranslator.new(downcased_text_to_translate)
     braille_message = new_translation.convert_to_braille
     write_file(ARGV[1], braille_message)
     print_message(character_count)
   end
-  
-  def downcase_text
-    @text_to_translate.downcase
-  end
 
-  def count_characters_in_input
+  def count_characters_in_text_to_translate
     @text_to_translate.tr("\n","").length
   end
 
