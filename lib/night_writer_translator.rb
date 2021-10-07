@@ -35,8 +35,8 @@ class NightWriterTranslator
   end
   
   def convert_three_lines_of_braille_arrays_into_three_lines_of_braille_strings(three_lines_of_braille_arrays)
-    three_lines_of_braille_arrays[0].flatten.join + "\n" +
-    three_lines_of_braille_arrays[1].flatten.join + "\n" + 
-    three_lines_of_braille_arrays[2].flatten.join
+    three_lines_of_braille_arrays[0].join + "\n" +
+    three_lines_of_braille_arrays[1].join + "\n" + 
+    three_lines_of_braille_arrays[2].join
   end
 end
