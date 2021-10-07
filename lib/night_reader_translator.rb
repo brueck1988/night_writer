@@ -24,7 +24,7 @@ class NightReaderTranslator
       braille_character = []
       3.times {|n| braille_character << braille_line[n].slice!(0..1)}
       letter = AlphanumericDictionary.new(braille_character)
-      text_message_line << letter.converter
+      text_message_line << letter.translate_braille_to_letter
     end
     text_message_line.join
   end

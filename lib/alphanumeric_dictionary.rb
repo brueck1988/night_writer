@@ -5,7 +5,7 @@ class AlphanumericDictionary
     @character = character
   end
 
-  def converter
+  def translate_braille_to_letter
     dictionary =  {}
     dictionary[["0.","..",".."]] = "a"
     dictionary[["0.","0.",".."]] = "b"
