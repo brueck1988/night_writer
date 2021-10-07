@@ -1,45 +1,44 @@
 class AlphanumericDictionary
   attr_reader :character
 
-  def initialize(character)
-    @character = character
+  def initialize
+    @dictionary =  {
+                      ["0.","..",".."] => "a",
+                      ["0.","0.",".."] => "b",
+                      ["00","..",".."] => "c",
+                      ["00",".0",".."] => "d",
+                      ["0.",".0",".."] => "e",
+                      ["00","0.",".."] => "f",
+                      ["00","00",".."] => "g",
+                      ["0.","00",".."] => "h",
+                      [".0","0.",".."] => "i",
+                      [".0","00",".."] => "j",
+                      ["0.","..","0."] => "k",
+                      ["0.","0.","0."] => "l",
+                      ["00","..","0."] => "m",
+                      ["00",".0","0."] => "n",
+                      ["0.",".0","0."] => "o",
+                      ["00","0.","0."] => "p",
+                      ["00","00","0."] => "q",
+                      ["0.","00","0."] => "r",
+                      [".0","0.","0."] => "s",
+                      [".0","00","0."] => "t",
+                      ["0.","..","00"] => "u",
+                      ["0.","0.","00"] => "v",
+                      [".0","00",".0"] => "w",
+                      ["00","..","00"] => "x",
+                      ["00",".0","00"] => "y",
+                      ["0.",".0","00"] => "z",
+                      ["..","..",".."] => " ",
+                      ["..","00",".0"] => ".",
+                      ["..","0.",".."] => ",",
+                      ["..","..","0."] => "'"
+                    }
   end
 
-  def translate_braille_to_letter
-    dictionary =  {}
-    dictionary[["0.","..",".."]] = "a"
-    dictionary[["0.","0.",".."]] = "b"
-    dictionary[["00","..",".."]] = "c"
-    dictionary[["00",".0",".."]] = "d"
-    dictionary[["0.",".0",".."]] = "e"
-    dictionary[["00","0.",".."]] = "f"
-    dictionary[["00","00",".."]] = "g"
-    dictionary[["0.","00",".."]] = "h"
-    dictionary[[".0","0.",".."]] = "i"
-    dictionary[[".0","00",".."]] = "j"
-    dictionary[["0.","..","0."]] = "k"
-    dictionary[["0.","0.","0."]] = "l"
-    dictionary[["00","..","0."]] = "m"
-    dictionary[["00",".0","0."]] = "n"
-    dictionary[["0.",".0","0."]] = "o"
-    dictionary[["00","0.","0."]] = "p"
-    dictionary[["00","00","0."]] = "q"
-    dictionary[["0.","00","0."]] = "r"
-    dictionary[[".0","0.","0."]] = "s"
-    dictionary[[".0","00","0."]] = "t"
-    dictionary[["0.","..","00"]] = "u"
-    dictionary[["0.","0.","00"]] = "v"
-    dictionary[[".0","00",".0"]] = "w"
-    dictionary[["00","..","00"]] = "x"
-    dictionary[["00",".0","00"]] = "y"
-    dictionary[["0.",".0","00"]] = "z"
-    dictionary[["..","..",".."]] = " "
-    dictionary[["..","00",".0"]] = "."
-    dictionary[["..","0.",".."]] = ","
-    dictionary[["..","..","0."]] = "'"
-
-    if dictionary[@character]
-      dictionary[@character]
+  def translate_braille_to_letter(character)
+    if @dictionary[character]
+      @dictionary[character]
     else
       "Undefined Character"
     end
