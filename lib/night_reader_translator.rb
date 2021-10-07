@@ -5,6 +5,7 @@ class NightReaderTranslator
 
   def initialize(braille_to_translate)
     @braille_to_translate = braille_to_translate
+    @dictionary = AlphanumericDictionary.new
   end
 
   def translate_to_text
@@ -20,11 +21,10 @@ class NightReaderTranslator
   
   def convert_three_lines_of_braille_arrays_into_one_text_line(braille_line)
     text_message_line = []
-    dictionary = AlphanumericDictionary.new
     until braille_line == ["", "", ""]
       braille_character = []
       3.times {|n| braille_character << braille_line[n].slice!(0..1)}
-      text_message_line << dictionary.translate_braille_to_letter(braille_character)
+      text_message_line << @dictionary.translate_braille_to_letter(braille_character)
     end
     text_message_line.join
   end
