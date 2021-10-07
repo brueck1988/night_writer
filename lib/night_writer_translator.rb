@@ -28,7 +28,7 @@ class NightWriterTranslator
     braille_line = [[], [], []]
     element.each_char do |character|
       letter = BrailleDictionary.new(character)
-      3.times {|n| braille_line[n] << letter.converter[n]}
+      3.times {|n| braille_line[n] << letter.translate_letter_to_braille[n]}
     end
     braille_line
   end

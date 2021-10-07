@@ -5,7 +5,7 @@ class BrailleDictionary
     @character = character
   end
 
-  def converter
+  def translate_letter_to_braille
     dictionary =  {}
     dictionary["a"] = [["0."],[".."],[".."]]
     dictionary["b"] = [["0."],["0."],[".."]]
