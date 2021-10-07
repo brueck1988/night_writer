@@ -27,8 +27,8 @@ class NightWriterTranslator
   def convert_one_text_line_into_three_lines_of_braille_arrays(element)
     braille_line = [[], [], []]
     element.each_char do |character|
-      letter = BrailleDictionary.new(character)
-      3.times {|n| braille_line[n] << letter.translate_letter_to_braille[n]}
+      letter = BrailleDictionary.new
+      3.times {|n| braille_line[n] << letter.translate_letter_to_braille(character)[n]}
     end
     braille_line
   end
