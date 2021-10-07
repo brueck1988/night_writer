@@ -1,7 +1,8 @@
 require "./lib/alphanumeric_dictionary"
 
 class NightReaderTranslator
-  attr_reader :braille_to_translate
+  attr_reader :braille_to_translate,
+              :dictionary
 
   def initialize(braille_to_translate)
     @braille_to_translate = braille_to_translate

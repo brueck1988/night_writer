@@ -1,5 +1,5 @@
 class BrailleDictionary
-  attr_reader :character
+  attr_reader :dictionary
 
   def initialize
     @dictionary =  {
