@@ -1,6 +1,9 @@
 require "./lib/braille_dictionary"
 
 class NightWriterTranslator
+  attr_reader :text_to_translate,
+              :dictionary
+              
   def initialize(text_to_translate)
     @text_to_translate = text_to_translate
     @dictionary = BrailleDictionary.new
