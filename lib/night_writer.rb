@@ -5,8 +5,8 @@ class NightWriter
   include FileIo
 
   def initialize
-    if ARGV[0].nil? || ARGV[1].nil?
-      ARGV[0] = "original_message.txt"
+    if ARGV[0].nil? || ARGV[1].nil?    #This conditional allows this class to 
+      ARGV[0] = "original_message.txt" #be tested since this app relies on ARGV
       ARGV[1] = "braille_output1.txt"
     end
     @text_to_translate = read_text_file(ARGV[0])

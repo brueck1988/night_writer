@@ -6,8 +6,8 @@ class NightReader
   attr_reader :text_to_translate
 
   def initialize
-    if ARGV[0].nil? || ARGV[1].nil?
-      ARGV[0] = "braille_output1.txt"
+    if ARGV[0].nil? || ARGV[1].nil?    #This conditional allows this class to 
+      ARGV[0] = "braille_output1.txt"  #be tested since this app relies on ARGV
       ARGV[1] = "original_message.txt"
     end
     @braille_to_translate = read_text_file(ARGV[0]) 
