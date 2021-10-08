@@ -2,35 +2,35 @@ require "./lib/alphanumeric_dictionary"
 
 class NightReaderTranslator
   attr_reader :braille_to_translate,
-              :text_message
+              :dictionary
 
   def initialize(braille_to_translate)
     @braille_to_translate = braille_to_translate
-    @text_message = []
+    @dictionary = AlphanumericDictionary.new
   end
 
   def translate_to_text
-    split_braille_at_line_breaks
-    until @split_braille == []
-      braille_line = [[],[],[]]
-      @text_message_line = []
-      braille_line[0] << @split_braille.slice!(0)
-      braille_line[1] << @split_braille.slice!(0)
-      braille_line[2] << @split_braille.slice!(0)
-      until @braille_line == [[""], [""], [""]]
-        braille_character = [[],[],[]]
-        braille_character[0] << @braille_line[0][0].slice!(0..1)
-        braille_character[1] << @braille_line[1][0].slice!(0..1)
-        braille_character[2] << @braille_line[2][0].slice!(0..1)
-        letter = AlphanumericDictionary.new(braille_character)
-        @text_message_line << letter.converter
-      end
-      @text_message << @text_message_line.join
+    braille_split_at_line_breaks = split_braille_at_line_breaks
+    text_message = []
+    until braille_split_at_line_breaks == []
+      braille_line = []
+      3.times {braille_line << braille_split_at_line_breaks.slice!(0)}
+      text_message << convert_three_lines_of_braille_arrays_into_one_text_line(braille_line)
     end
-    @text_message
+    text_message
+  end
+  
+  def convert_three_lines_of_braille_arrays_into_one_text_line(braille_line)
+    text_message_line = []
+    until braille_line == ["", "", ""]
+      braille_character = []
+      3.times {|n| braille_character << braille_line[n].slice!(0..1)}
+      text_message_line << @dictionary.translate_braille_to_letter(braille_character)
+    end
+    text_message_line.join
   end
 
   def split_braille_at_line_breaks
-    @split_braille = @braille_to_translate.split("\n")
+    @braille_to_translate.split("\n")
   end
 end

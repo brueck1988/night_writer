@@ -6,24 +6,27 @@ class NightReader
   attr_reader :text_to_translate
 
   def initialize
-    @braille_to_translate = read_text_file(ARGV[0])
-    @text_message = []
+    if ARGV[0].nil? || ARGV[1].nil?    #This conditional allows this class to 
+      ARGV[0] = "braille_output1.txt"  #be tested since this app relies on ARGV
+      ARGV[1] = "original_message.txt"
+    end
+    @braille_to_translate = read_text_file(ARGV[0]) 
   end
 
   def start
-    count_characters_in_input
-    new_translation = NightReaderTranslator.new(@braille_to_translate)
-    text_message = new_translation.translate_to_text
+    character_count = count_characters_in_input
+    night_reader = NightReaderTranslator.new(@braille_to_translate)
+    text_message = night_reader.translate_to_text
     write_file(ARGV[1], text_message)
-    print_message
+    print_message(character_count)
   end
 
   def count_characters_in_input
-    @character_count = @braille_to_translate.tr("\n","").length
+    @braille_to_translate.tr("\n","").length
   end
 
-  def print_message
-    print "Created '#{ARGV[1]}' containing #{@character_count} characters."
+  def print_message(character_count)
+    print "Created '#{ARGV[1]}' containing #{character_count} characters."
   end
 end
 

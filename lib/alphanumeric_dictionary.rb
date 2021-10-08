@@ -1,71 +1,44 @@
 class AlphanumericDictionary
-  attr_reader :character
+  attr_reader :dictionary
 
-  def initialize(character)
-    @character = character
+  def initialize
+    @dictionary =  {
+                    ["0.","..",".."] => "a",
+                    ["0.","0.",".."] => "b",
+                    ["00","..",".."] => "c",
+                    ["00",".0",".."] => "d",
+                    ["0.",".0",".."] => "e",
+                    ["00","0.",".."] => "f",
+                    ["00","00",".."] => "g",
+                    ["0.","00",".."] => "h",
+                    [".0","0.",".."] => "i",
+                    [".0","00",".."] => "j",
+                    ["0.","..","0."] => "k",
+                    ["0.","0.","0."] => "l",
+                    ["00","..","0."] => "m",
+                    ["00",".0","0."] => "n",
+                    ["0.",".0","0."] => "o",
+                    ["00","0.","0."] => "p",
+                    ["00","00","0."] => "q",
+                    ["0.","00","0."] => "r",
+                    [".0","0.","0."] => "s",
+                    [".0","00","0."] => "t",
+                    ["0.","..","00"] => "u",
+                    ["0.","0.","00"] => "v",
+                    [".0","00",".0"] => "w",
+                    ["00","..","00"] => "x",
+                    ["00",".0","00"] => "y",
+                    ["0.",".0","00"] => "z",
+                    ["..","..",".."] => " ",
+                    ["..","00",".0"] => ".",
+                    ["..","0.",".."] => ",",
+                    ["..","..","0."] => "'"
+                   }
   end
 
-  def converter
-    if character == [["0."],[".."],[".."]]
-      "a"
-    elsif character == [["0."],["0."],[".."]]
-      "b"
-    elsif character == [["00"],[".."],[".."]]
-      "c"
-    elsif character == [["00"],[".0"],[".."]]
-      "d"
-    elsif character == [["0."],[".0"],[".."]]
-      "e"
-    elsif character == [["00"],["0."],[".."]]
-      "f"
-    elsif character == [["00"],["00"],[".."]]
-      "g"
-    elsif character == [["0."],["00"],[".."]]
-      "h"
-    elsif character == [[".0"],["0."],[".."]]
-      "i"
-    elsif character == [[".0"],["00"],[".."]]
-      "j"
-    elsif character == [["0."],[".."],["0."]]
-      "k"
-    elsif character == [["0."],["0."],["0."]]
-      "l"
-    elsif character == [["00"],[".."],["0."]]
-      "m"
-    elsif character == [["00"],[".0"],["0."]]
-      "n"
-    elsif character == [["0."],[".0"],["0."]]
-      "o"
-    elsif character == [["00"],["0."],["0."]]
-      "p"
-    elsif character == [["00"],["00"],["0."]]
-      "q"
-    elsif character == [["0."],["00"],["0."]]
-      "r"
-    elsif character == [[".0"],["0."],["0."]]
-      "s"
-    elsif character == [[".0"],["00"],["0."]]
-      "t"
-    elsif character == [["0."],[".."],["00"]]
-      "u"
-    elsif character == [["0."],["0."],["00"]]
-      "v"
-    elsif character == [[".0"],["00"],[".0"]]
-      "w"
-    elsif character == [["00"],[".."],["00"]]
-      "x"
-    elsif character == [["00"],[".0"],["00"]]
-      "y"
-    elsif character == [["0."],[".0"],["00"]]
-      "z"
-    elsif character == [[".."],[".."],[".."]]
-      " "
-    elsif character == [[".."],["00"],[".0"]]
-      "."
-    elsif character == [[".."],["0."],[".."]]
-      ","
-    elsif character == [[".."],[".."],["0."]]
-      "'"
+  def translate_braille_to_letter(character)
+    if @dictionary[character]
+      @dictionary[character]
     else
       "Undefined Character"
     end
