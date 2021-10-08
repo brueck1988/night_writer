@@ -6,7 +6,11 @@ class NightReader
   attr_reader :text_to_translate
 
   def initialize
-    @braille_to_translate = read_text_file(ARGV[0])
+    if ARGV[0].nil? || ARGV[1].nil?
+      ARGV[0] = "braille_output1.txt"
+      ARGV[1] = "original_message.txt"
+    end
+    @braille_to_translate = read_text_file(ARGV[0]) 
   end
 
   def start

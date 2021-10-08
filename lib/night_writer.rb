@@ -5,6 +5,10 @@ class NightWriter
   include FileIo
 
   def initialize
+    if ARGV[0].nil? || ARGV[1].nil?
+      ARGV[0] = "original_message.txt"
+      ARGV[1] = "braille_output1.txt"
+    end
     @text_to_translate = read_text_file(ARGV[0])
   end
 
