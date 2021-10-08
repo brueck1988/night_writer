@@ -24,6 +24,15 @@ class NightReaderTranslatorTest < Minitest::Test
     assert_equal ["abcd"], night_reader_translator.translate_to_text
   end
 
+  def test_convert_three_lines_of_braille_arrays_into_one_text_line
+    braille_to_translate = "0.0.0000\n..0....0\n........"
+    night_writer = NightReaderTranslator.new(braille_to_translate)
+    braille_line = ["0.0.0000", "..0....0", "........"]
+    expected = "abcd"
+
+    assert_equal expected, night_writer.convert_three_lines_of_braille_arrays_into_one_text_line(braille_line)
+  end
+
   def test_split_braille_at_line_breaks
     braille_to_translate = "0.0.0000\n..0....0\n........"
     night_writer = NightReaderTranslator.new(braille_to_translate)
