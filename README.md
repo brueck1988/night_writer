@@ -1,25 +1,33 @@
-This program has two runner files, night_writer and night_reader. Night_writer
-converts English into Braille, and night_reader converts braille into English.
-Both programs are limited to the following characters:
-[abcdefghijklmnopqrstuvwxyz ,.']
+### Turing School Project Week 5 - [Night_Writer](https://backend.turing.io/module1/projects/night_writer/)
 
-All other characters will return "Undefined Character"
 
-Since these files employ ARGV, each runner file expects the user to provide the
-name of the file to be read, and the name of the file to be created/written to
-after the run command, as shown in the following command line prompts.
+Night_Writer is a command line interface app; it takes in a .txt file in English (argument 1) and outputs a .txt file in Braille. The Braille file name is specified in argument 2. 
+```
+$ ruby ./lib/night_writer.rb message.txt braille.txt
+=>Created 'braille.txt' containing 256 characters
+```
+There is also Braille to English functionality via night_reader:
+```
+$ ruby ./lib/night_reader.rb braille.txt original_message.txt
+=>Created 'original_message.txt' containing 256 characters.
+```
 
-ruby ./lib/night_writer.rb text_input.txt braille_output.txt
-  Ex. -> ruby ./lib/night_writer.rb message.txt braille_output1.txt
+Night_writer/reader accepts uppercase characters, and immediately down-cases them for simplicity.
+Both night_writer and night_reader are limited to the following characters:
+abcdefghijklmnopqrstuvwxyz ,.' **All other characters will return "Undefined Character"**
 
-ruby ./lib/night_reader.rb braille_input.txt text_output.txt
-  Ex. -> ruby ./lib/night_reader.rb braille_output1.txt original_message.txt
-  
 To run a test with mini test:
   Ex. -> ruby test/night_reader_translator_test.rb
   
 To run all tests with mini test at once:
-  Ex. -> rake
+  Ex. -> rake (See below for known issue with this command)
+
+Given more time I would prioritize these changes:
+  * Add support for uppcase letters.
+  * Add support for additional symbols.
+  * Fix the bug where running 'rake' from the command line to run all the tests
+    causes one of the tests to become corrupted.
+
   
   
   
